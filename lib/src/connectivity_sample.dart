@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_connectivity_sample/src/not_connection.dart';
 
 class ConnectivitySample extends StatefulWidget {
   const ConnectivitySample({
@@ -57,14 +58,7 @@ class _State extends State<ConnectivitySample> {
   @override 
   Widget build(BuildContext context) {
     return connectionStatus == ConnectivityResult.none 
-    ? const AlertDialog(
-      title: Text("not connection"),
-      content: SizedBox(
-        width: 200,
-        height: 200,
-        child: Text("network error."),
-      ),
-    )    
+    ? const NotConnection()
     : widget.child;
   }
 }
