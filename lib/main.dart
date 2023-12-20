@@ -35,17 +35,13 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            const Text(
-              'connectivity sample',
-            ),
-            ConnectivitySample()
-          ],
-        )
-      ),
+      body: const ConnectivitySample(
+        child: Center(
+          child: Text(
+            'connectivity sample',
+          ),
+        ),
+      )
     );
   }
 }

@@ -1,13 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 class ConnectivitySample extends StatefulWidget {
   const ConnectivitySample({
-    super.key
+    super.key,
+    required this.child
   });
+
+  final Widget child;
 
   @override 
   State<ConnectivitySample> createState() => _State();
@@ -46,7 +49,6 @@ class _State extends State<ConnectivitySample> {
   }
 
   Future<void> updateConnectionStatus(ConnectivityResult result) async {
-    print("updateConnectionStatus");
     setState(() {
       connectionStatus = result;
     });
@@ -55,7 +57,7 @@ class _State extends State<ConnectivitySample> {
   @override 
   Widget build(BuildContext context) {
     return connectionStatus == ConnectivityResult.none 
-    ? AlertDialog(
+    ? const AlertDialog(
       title: Text("not connection"),
       content: SizedBox(
         width: 200,
@@ -63,6 +65,6 @@ class _State extends State<ConnectivitySample> {
         child: Text("network error."),
       ),
     )    
-    : const SizedBox();
+    : widget.child;
   }
 }
