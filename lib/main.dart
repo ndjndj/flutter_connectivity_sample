@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_connectivity_sample/src/connectivity_sample.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,14 +36,15 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
             const Text(
-              'You have pushed the button this many times:',
+              'connectivity sample',
             ),
+            ConnectivitySample()
           ],
-        ),
+        )
       ),
     );
   }
