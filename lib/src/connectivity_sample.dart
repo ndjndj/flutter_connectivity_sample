@@ -25,6 +25,7 @@ class _State extends State<ConnectivitySample> {
   @override 
   void initState() {
     super.initState();
+    initConnectivity();
     connectivitySubscription = connectivity.onConnectivityChanged.listen(updateConnectionStatus);
   }
 
